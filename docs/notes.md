@@ -36,3 +36,12 @@ Outstanding issues:
 - The backend is almost entirely Wei Jie's work. If he left the project, nobody else could maintain it.
 - Task priority logic isn't documented anywhere — it's just in the code.
 - No tests at all. If something breaks we wouldn't know until someone manually checks.
+
+## Setup Guide
+
+1. Clone the repo
+2. cd into backend/
+3. Run: pip install -r requirements.txt
+4. Run: python app.py
+5. Open frontend/index.html in a browser
+6. The app connects to localhost:5000 automatically
