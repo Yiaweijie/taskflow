@@ -4,11 +4,13 @@ Built with Flask for our university group project.
 """
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from datetime import datetime
 import json
 import os
 
 app = Flask(__name__)
+CORS(app)  # Allow frontend to connect from different port
 
 # Simple file-based storage (no database needed)
 DATA_FILE = os.path.join(os.path.dirname(__file__), "tasks.json")
