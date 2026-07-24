@@ -51,8 +51,10 @@ def create_task():
     data = request.get_json()
     tasks = load_tasks()
 
+    # Fix: use max ID instead of length to avoid collisions after deletions
+    next_id = max((t["id"] for t in tasks), default=0) + 1
     new_task = {
-        "id": len(tasks) + 1,
+        "id": next_id,
         "title": data["title"],
         "description": data.get("description", ""),
         "status": "todo",
