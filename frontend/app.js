@@ -67,10 +67,16 @@ function createTaskCard(task) {
         <h4>${task.title}</h4>
         <p>${task.description}</p>
         ${task.assignee ? `<div class="assignee">Assigned to: ${task.assignee}</div>` : ""}
+        <button class="delete-btn" onclick="deleteTask(${task.id})">×</button>
     `;
 
     card.addEventListener("click", () => cycleStatus(task.id, task.status));
     return card;
+}
+
+async function deleteTask(taskId) {
+    await fetch(`${API_URL}/tasks/${taskId}`, { method: "DELETE" });
+    loadTasks();
 }
 
 // Cycle task status on click: todo -> in_progress -> done -> todo
