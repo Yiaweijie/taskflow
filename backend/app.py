@@ -117,5 +117,20 @@ def get_stats():
     })
 
 
+@app.route("/api/tasks/search", methods=["GET"])
+def search_tasks():
+    """Search tasks by keyword in title or description."""
+    query = request.args.get("q", "").lower()
+    if not query:
+        return jsonify({"error": "Query parameter 'q' is required"}), 400
+
+    tasks = load_tasks()
+    results = [
+        t for t in tasks
+        if query in t["title"].lower() or query in t["description"].lower()
+    ]
+    return jsonify(results)
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
