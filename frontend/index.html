@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TaskFlow</h1>
+        <p>Simple task management for teams</p>
+    </header>
+
+    <main>
+        <div class="board">
+            <div class="column" id="todo-column">
+                <h2>To Do</h2>
+                <div class="task-list" id="todo-list"></div>
+            </div>
+            <div class="column" id="progress-column">
+                <h2>In Progress</h2>
+                <div class="task-list" id="progress-list"></div>
+            </div>
+            <div class="column" id="done-column">
+                <h2>Done</h2>
+                <div class="task-list" id="done-list"></div>
+            </div>
+        </div>
+
+        <div class="add-task">
+            <h3>Add New Task</h3>
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Task title" required>
+                <textarea id="task-desc" placeholder="Description (optional)"></textarea>
+                <select id="task-priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
