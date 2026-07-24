@@ -4,7 +4,7 @@
 
 Decided to build a task manager. Simple kanban board with three columns.
 
-Wei Ji is handling the backend since he has Flask experience. The other two will split frontend and docs.
+Wei Jie is handling the backend since he has Flask experience. The other two will split frontend and docs.
 
 Key decisions:
 - JSON file for storage instead of a database — keeps it simple
@@ -13,7 +13,7 @@ Key decisions:
 
 ## July 21 — Progress Check
 
-API is done. CRUD for tasks works. Wei Ji also added a stats endpoint.
+API is done. CRUD for tasks works. Wei Jie also added a stats endpoint.
 
 Frontend has the basic layout but no API wiring yet. Styling looks good though.
 
@@ -29,10 +29,10 @@ Frontend is mostly connected. Click a card to cycle its status. Form works for a
 Outstanding issues:
 - Drag and drop would be nice but might not have time
 - Need to test on someone else's machine
-- Wei Ji is the only one who fully understands the API error handling — should document that
+- Wei Jie is the only one who fully understands the API error handling — should document that
 
 ## Observations
 
-- The backend is almost entirely Wei Ji's work. If he left the project, nobody else could maintain it.
+- The backend is almost entirely Wei Jie's work. If he left the project, nobody else could maintain it.
 - Task priority logic isn't documented anywhere — it's just in the code.
 - No tests at all. If something breaks we wouldn't know until someone manually checks.
