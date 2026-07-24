@@ -8,6 +8,11 @@ from flask_cors import CORS
 from datetime import datetime
 import json
 import os
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 CORS(app)  # Allow frontend to connect from different port
@@ -20,14 +25,22 @@ def load_tasks():
     """Load tasks from JSON file."""
     if not os.path.exists(DATA_FILE):
         return []
-    with open(DATA_FILE, "r") as f:
-        return json.load(f)
+    try:
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        logger.error("Corrupted tasks.json file, returning empty list")
+        return []
 
 
 def save_tasks(tasks):
     """Save tasks to JSON file."""
-    with open(DATA_FILE, "w") as f:
-        json.dump(tasks, f, indent=2)
+    try:
+        with open(DATA_FILE, "w") as f:
+            json.dump(tasks, f, indent=2)
+        logger.info(f"Saved {len(tasks)} tasks to disk")
+    except IOError as e:
+        logger.error(f"Failed to save tasks: {e}")
 
 
 @app.route("/api/tasks", methods=["GET"])
