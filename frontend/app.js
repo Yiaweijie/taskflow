@@ -55,6 +55,8 @@ function renderTasks(tasks) {
                 break;
         }
     });
+
+    document.getElementById("task-count").textContent = `${tasks.length} tasks total`;
 }
 
 // Create a task card element
