@@ -49,6 +49,13 @@ def get_tasks():
 def create_task():
     """Create a new task."""
     data = request.get_json()
+
+    if not data or not data.get("title"):
+        return jsonify({"error": "Title is required"}), 400
+
+    if len(data["title"]) > 200:
+        return jsonify({"error": "Title must be 200 characters or less"}), 400
+
     tasks = load_tasks()
 
     # Fix: use max ID instead of length to avoid collisions after deletions
