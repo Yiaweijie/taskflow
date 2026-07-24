@@ -5,8 +5,8 @@ A simple task management app for small teams. Built as a university group projec
 ## Team
 
 - **Wei Jie** — Backend API & project setup
-- **Person A** — Frontend UI & styling
-- **Person B** — Docs, testing & deployment
+- **Stewart** — Frontend UI & styling
+- **Jerrold** — Docs, testing & deployment
 
 ## Tech Stack
 
